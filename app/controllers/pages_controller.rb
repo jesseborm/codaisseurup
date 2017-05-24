@@ -5,4 +5,7 @@ class PagesController < ApplicationController
   def about
   end
 
+  # optional action
+  def terms
+  end
 end
