@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :events
   resources :profiles, only: [:new, :create, :edit, :update]
   get "about", to: "pages#about"
+  get "terms", to: "pages#terms"
 end
