@@ -3,11 +3,12 @@ class Event < ApplicationRecord
   has_and_belongs_to_many :categories
 
 
-  # validates :name, presence: true
-  # validates :description, length: {maximum: 500}, presence: true
-  # validates :starts_at, presence: true
+  validates :name, :location, :price, :capacity, presence: true
+  validates :description, length: {maximum: 500}, presence: true
+  validates :starts_at, presence: true
   # # Does this one checks to see if last bit is true?
-  # validates :ends_at, presence: true, if: :ends_at > :starts_at
+  # , if: :ends_at > :starts_at
+  validates :ends_at, presence: true
 
   # Should give every detail for every event unless
   # Not yet tested if this works. maybe #FIXME
@@ -16,6 +17,14 @@ class Event < ApplicationRecord
       event.each { |k, v| puts "#{k} is #{v}" } unless v.blank?
     end
 
+  end
+
+  def bargain?
+    price < 30
+  end
+
+  def self.order_by_price
+    order(:price)
   end
 
   def all_events
