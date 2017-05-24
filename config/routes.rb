@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :events
   resources :profiles, only: [:new, :create, :edit, :update]
+  get "about", to: "pages#about"
 end
