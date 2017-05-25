@@ -22,6 +22,8 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 # To handle file uploads
 gem 'carrierwave', '0.11.2'
+# Hosting platform for your images
+gem 'cloudinary', '1.2.3'
 # For easy css
 gem 'bootstrap-sass', '~> 3.3.6'
 # Use CoffeeScript for .coffee assets and views
