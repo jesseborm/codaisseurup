@@ -1,9 +1,3 @@
-<!-- Not sure if this is the right place: -->
-<!-- <%= form_for @profile do |f| %>
-  <% @profile.errors.full_messages.each do |msg| %>
-    <p class="alert alert-danger"><%= msg %></p>
-  <% end %> -->
-
 <%= form_for @event do |f| %>
   <div class="form-group">
     <label>Name</label>
@@ -17,7 +11,7 @@
 
   <div class="form-group">
     <label>Capacity</label>
-    <%= f.select :capacity, [["10", 10], ["20", 20], ["30", 30], ["40", 40], ["50", 50], ["60+", 60]], prompt: "Select number of people", class: "form-control" %>
+    <%= f.select :capacity, (0..300).step(10).to_a.map{|s| ["#{s}", s]} %>
   </div>
 
   <label>Food / Drinks</label>
@@ -56,7 +50,8 @@
 
     <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |b| %>
       <div class="form-group">
-        <%= b.check_box(class: "check_box") %> <%= b.object.name %>
+        <%= b.check_box(class: "check_box") %>
+        <%= b.object.name %>
       </div>
     <% end %>
 
