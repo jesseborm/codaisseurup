@@ -4,7 +4,7 @@ class RegistrationsController < ApplicationController
   def create
     @registration = current_user.registrations.create(registration_params.merge(event_id: params[:event_id]))
     # @registration.set_total_price
-    @registration.save
+    # @registration.save #No need for this one because you use create
 
     redirect_to @registration.event, notice: "Thank you for registration!"
   end
