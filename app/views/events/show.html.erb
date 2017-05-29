@@ -40,13 +40,14 @@
     </ul>
 
     <!-- Photos -->
-    <% @event.photos.each do |photo| %>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <%= image_tag photo.image.thumbnail %>
+    <h4>Photos</h4>
+      <% @event.photos.each do |photo| %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <%= image_tag photo.image.thumbnail %>
+        </div>
       </div>
-    </div>
-    <% end %>
+      <% end %>
 
     <h4>Categories</h4>
       <% @categories.each do |category| %>

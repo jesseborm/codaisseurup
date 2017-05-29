@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @events = Event.all
+    @events = current_user.events
   end
 
   def show
@@ -29,7 +29,7 @@ class EventsController < ApplicationController
 
   def edit
     if current_user.id == @event.user.id
-      @events = @events.photos
+      @photos = @event.photos
     else
       redirect_to root_path, notice: "You don't have permission."
     end
