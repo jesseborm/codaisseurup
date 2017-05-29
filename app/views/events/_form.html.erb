@@ -1,4 +1,4 @@
-<%= form_for @event do |f| %>
+<%= form_for @event, html: { multipart: true } do |f| %>
   <div class="form-group">
     <label>Name</label>
     <%= f.text_field :name, placeholder: "Name", class: "form-control" %>
@@ -45,6 +45,11 @@
       <%= f.number_field :price, placeholder: "eg. 100", class: "form-control" %>
     </div>
   </div>
+
+  <label>Photos</label>
+    <div id="photos">
+      <%= render 'photos/list' %>
+    </div>
 
   <label>Category</label>
 

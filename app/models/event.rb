@@ -18,7 +18,6 @@ class Event < ApplicationRecord
     Event.all.each do |event|
       event.each { |k, v| puts "#{k} is #{v}" } unless v.blank?
     end
-
   end
 
   def bargain?

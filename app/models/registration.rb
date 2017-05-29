@@ -15,8 +15,8 @@ class Registration < ApplicationRecord
   def set_total_price
     self.price = event.price
     self.total_price = price * guest_count
-    puts "*" * 50
-    puts total_price
-    puts "*" * 50
+    # puts "*" * 50
+    # puts total_price
+    # puts "*" * 50
   end
 end

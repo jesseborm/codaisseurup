@@ -21,7 +21,7 @@ class EventsController < ApplicationController
     if @event.save
       create_images
 
-      redirect_to @event, notice: "Event successfully created" 
+      redirect_to @event, notice: "Event successfully created"
     else
       render :new
     end
@@ -32,6 +32,7 @@ class EventsController < ApplicationController
       @events = @events.photos
     else
       redirect_to root_path, notice: "You don't have permission."
+    end
   end
 
   def update
@@ -60,5 +61,6 @@ class EventsController < ApplicationController
     def create_images
       image_params.each do |image|
         @events.photos.create(image: image)
+      end
     end
 end
