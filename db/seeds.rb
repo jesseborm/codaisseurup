@@ -19,9 +19,9 @@ jesse  = User.create(email: "test@test.nl", password: "123123")
 
 
 # Photo
-photo1 = Photo.create(remote_image_url: "https://lh6.ggpht.com/DcbOYdaNmHBKDsMBXPWy9AXS7h6XbJ4U53ymUwkAAelCQfAJO5QkHnLar0zuiWW1WmI=w300")
-photo2 = Photo.create(remote_image_url: "https://d1zqayhc1yz6oo.cloudfront.net/e438313a0e8035642bb7be8c754316db.png")
-photo3 = Photo.create(remote_image_url: "http://static.fjcdn.com/pictures/C+h+random+comic+generator+gems+just+a+bunch_82c6f5_5383285.png")
+photo1 = Photo.create(image: "https://lh6.ggpht.com/DcbOYdaNmHBKDsMBXPWy9AXS7h6XbJ4U53ymUwkAAelCQfAJO5QkHnLar0zuiWW1WmI=w300")
+photo2 = Photo.create(image: "https://d1zqayhc1yz6oo.cloudfront.net/e438313a0e8035642bb7be8c754316db.png")
+photo3 = Photo.create(image: "http://static.fjcdn.com/pictures/C+h+random+comic+generator+gems+just+a+bunch_82c6f5_5383285.png")
 
 
 
