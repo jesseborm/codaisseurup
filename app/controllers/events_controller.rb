@@ -21,13 +21,17 @@ class EventsController < ApplicationController
     if @event.save
       create_images
 
-      redirect_to @event, notice: "Event successfully created" #Or ROOT
+      redirect_to @event, notice: "Event successfully created" 
     else
       render :new
     end
   end
 
   def edit
+    if current_user.id == @event.user.id
+      @events = @events.photos
+    else
+      redirect_to root_path, notice: "You don't have permission."
   end
 
   def update
