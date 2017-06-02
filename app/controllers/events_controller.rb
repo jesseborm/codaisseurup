@@ -60,7 +60,7 @@ class EventsController < ApplicationController
 
     def create_images
       image_params.each do |image|
-        @events.photos.create(image: image)
+        @event.photos.create(image: image)
       end
     end
 end

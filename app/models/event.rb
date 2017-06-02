@@ -20,6 +20,15 @@ class Event < ApplicationRecord
     end
   end
 
+  def available?(checkin, checkout)
+    registrations.each do |registration|
+      if (registration.starts_at <= checkout) && (registration.ends_at >= checkin)
+        return false
+      end
+    end
+    true
+  end
+
   def bargain?
     price < 30
   end
@@ -32,5 +41,55 @@ class Event < ApplicationRecord
     puts Event.all
   end
 
+  def self.alphabetical
+    order(listing_name: :asc)
+  end
 
-end
+  def self.starts_before_ends_after(arrival, departure)
+    where('starts_at < ? AND ends_at > ?', arrival, departure)
+  end
+
+  def self.starts_during(arrival)
+    where('starts_at > ? AND starts_at < ?', arrival, departure)
+  end
+
+  def self.ends_during(arrival, departure)
+    where('ends_at > ? AND ends_at < ?', arrival, departure)
+  end
+
+  def event
+
+  end
+
+  def order_by_starts_at
+    Event.order(:created_at)
+  end
+
+  def earliest_registration_for_event(eventname)
+    Registration.order(starts_at: :asc)#.map{ |reg| reg.starts_at }
+  end
+
+  def total_registrations
+    Registration.count
+  end
+
+  def total_amount_registrations_by_active
+    Registration.count
+  end
+
+  def amount_of_people_attending_event
+    Event.group
+  end
+
+  def event_names_and_amount_of_people_attending
+    Event.group(:name).map |eventname| do
+      eventname.each |i|  }.count
+    end
+  end
+
+  def event_names_and_amount_of_people_attending2
+    Event.group(:name).map |eventname| do
+
+    end
+
+  end

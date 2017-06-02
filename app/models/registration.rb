@@ -8,6 +8,9 @@ class Registration < ApplicationRecord
 
   before_save :set_total_price, :set_price
 
+
+
+
   def set_price
     price = self.event.price
   end
